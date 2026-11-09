@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Redesign de um app de gestão de metas · Carolina Girafa</title>
+  <meta name="description" content="Case de UX/UI: redesign de um app corporativo de gestão de metas que dependia de manual para ser usado. 27 problemas de usabilidade endereçados em 50+ telas.">
+  <meta name="color-scheme" content="light">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="brand" href="../" aria-label="Carolina Girafa, página inicial">Carolina Girafa</a>
+      <nav aria-label="Principal">
+        <ul class="nav__list" role="list">
+          <li><a class="nav__link" href="../#cases">Cases</a></li>
+          <li><a class="nav__link" href="../#sobre">Sobre</a></li>
+          <li><a class="nav__link" href="../#contato">Contato</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="conteudo" tabindex="-1">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Navegação estrutural">
+        <a href="../#cases"><span aria-hidden="true">←</span> Todos os cases</a>
+      </nav>
+
+      <!-- ===== Abertura ===== -->
+      <header class="case-hero">
+        <p class="eyebrow">UX/UI Design · Aplicação corporativa · Smarthis</p>
+        <h1 class="case-hero__title">Redesign de um app corporativo de gestão de metas</h1>
+        <p class="case-hero__lead">
+          Um app que só funcionava com manual. Investiguei os problemas, organizei as causas
+          e redesenhei a experiência para que a interface se tornasse intuitiva.
+        </p>
+
+        <dl class="case-summary" aria-label="Resumo do projeto">
+          <div><dt>Meu papel</dt><dd>Product Designer responsável pelo UX/UI, do diagnóstico ao handoff</dd></div>
+          <div><dt>Duração</dt><dd>Cerca de 1 ano</dd></div>
+          <div><dt>Usuários</dt><dd>~300 colaboradores e 40 gestores</dd></div>
+          <div><dt>Escopo</dt><dd>50+ telas redesenhadas</dd></div>
+          <div><dt>Métodos</dt><dd>Avaliação heurística, arquitetura da informação, wireframes, protótipos de alta fidelidade e 10+ sessões de validação</dd></div>
+          <div><dt>Ferramentas</dt><dd>Figma</dd></div>
+          <div class="case-summary__result"><dt>Resultado</dt><dd>27 problemas de usabilidade mapeados e endereçados, e uma interface que deixou de depender do manual para ser usada.</dd></div>
+        </dl>
+      </header>
+
+      <article class="prose">
+        <!-- ===== Contexto ===== -->
+        <h2>Contexto</h2>
+        <p>Uma empresa do setor de energia usava um app interno para gerenciar as metas de desempenho de toda a companhia. O app atendia dois perfis:</p>
+        <ul>
+          <li><strong>Colaboradores</strong>, que planejam, acompanham e atualizam as próprias metas</li>
+          <li><strong>Gestores e administradores</strong>, que visualizam as metas das equipes e têm funções extras, como gerenciar papéis de usuários</li>
+        </ul>
+        <p>O app funcionava, mas era visualmente carregado e difícil de entender. Era um projeto estratégico para um cliente importante, então eu fiquei responsável por investigar os problemas e propor uma nova experiência.</p>
+
+        <!-- ===== Desafio ===== -->
+        <h2>O desafio</h2>
+        <p>O sinal mais claro do problema era que <strong>o app dependia de um Guia do Usuário para ser usado</strong>. Para planejar ou atualizar uma meta, as pessoas precisavam consultar um documento no SharePoint.</p>
+        <p>A tela principal concentrava funcionalidades, filtros e informações sem hierarquia. Além disso, o app tinha regras de negócio importantes (tipos de meta diferentes, regras de status, sub-metas) que não apareciam em nenhum lugar da interface.</p>
+        <p class="callout">
+          <span class="eyebrow callout__label">Pergunta que guiou o projeto</span>
+          Como fazer a interface ser intuitiva, para quem usa o app pela primeira vez e para quem usa todo ciclo?
+        </p>
+
+        <!-- ===== Investigação ===== -->
+        <h2>Investigação: avaliação heurística</h2>
+        <p>Comecei com uma avaliação heurística baseada nas 10 heurísticas de Nielsen, complementada por critérios de acessibilidade. Percorri todos os fluxos descritos no Guia do Usuário e registrei cada problema com a página em que aparecia, a heurística violada e uma gravidade de 1 a 3.</p>
+
+        <ul class="stat-row" role="list" aria-label="Resultado da avaliação">
+          <li><span class="stat-row__value">27</span><span class="stat-row__label">problemas em 6 áreas do app</span></li>
+          <li><span class="stat-row__value">15</span><span class="stat-row__label">de gravidade alta</span></li>
+          <li><span class="stat-row__value">9</span><span class="stat-row__label">heurísticas e princípios envolvidos</span></li>
+        </ul>
+        <p>Os princípios mais violados foram <em>Reconhecimento em vez de memorização</em>, <em>Consistência e padrões</em> e <em>Estética e design minimalista</em>.</p>
+
+        <figure class="figure">
+          <img src="../assets/img/nts/01_tabela_avaliacao_heuristica.png" alt="Tabela da avaliação heurística com colunas para incidente, heurística relacionada, gravidade e motivação." loading="lazy" decoding="async">
+          <figcaption>Trecho da avaliação heurística: cada problema registrado com a heurística violada, a gravidade e o impacto para o usuário.</figcaption>
+        </figure>
+
+        <p>Em vez de tratar cada item isoladamente, agrupei os problemas em quatro temas. Foram esses temas que orientaram as decisões de design.</p>
+
+        <!-- ===== 4 problemas ===== -->
+        <h2>As 4 questões centrais e o que eu decidi</h2>
+
+        <!-- Tema 1 -->
+        <h3><span class="theme__number">01</span> Regras de negócio invisíveis</h3>
+        <p class="theme__meta">9 problemas · maioria de gravidade alta</p>
+        <p>Cada tipo de meta (KPI, Cronograma, Sub-metas) é planejado e atualizado de um jeito diferente, mas a interface não mostrava isso. Também não ficava claro quais dados eram editáveis, como funcionavam as regras de status nem que metas do tipo Cronograma precisavam de atividades vinculadas.</p>
+        <p><strong>Decisões:</strong></p>
+        <ul>
+          <li>Separei as duas ações principais de cada meta: <strong>“Iniciar planejamento”</strong>, para metas ainda não planejadas, e <strong>“Ver mais e atualizar”</strong>, para metas em andamento</li>
+          <li>Deixei explícito o <strong>fluxo de status</strong> (não planejada → planejada → em andamento → concluída), que só avança e não volta</li>
+          <li>Incluí <strong>explicações e dicas por tipo de meta</strong> dentro do próprio planejamento, no lugar onde a pessoa precisa delas</li>
+        </ul>
+        <p>Na tela de atualização, essas regras ficaram visíveis:</p>
+        <ul>
+          <li><strong>Meta pai</strong> identificada, para deixar clara a relação entre metas e sub-metas</li>
+          <li><strong>Evolução mensal com código de cor e legenda</strong>: dentro do planejado, abaixo do planejado e preenchimento atrasado</li>
+          <li><strong>Regra explicada no momento certo</strong>: quando a meta está atrasada, um aviso pede o preenchimento de Fato, Causa e Ação antes de continuar</li>
+        </ul>
+
+        <figure class="figure">
+          <img src="../assets/img/nts/06_atualizar_meta_alta_fidelidade.jpg" alt="Tela Atualizar Meta em alta fidelidade, com a meta pai identificada, a evolução mensal colorida por status com legenda e um aviso sobre o preenchimento de Fato, Causa e Ação." loading="lazy" decoding="async">
+          <figcaption>Atualizar Meta: relação com a meta pai, status de cada mês com legenda e aviso que explica a regra de metas atrasadas.</figcaption>
+        </figure>
+
+        <p>Finalizar uma meta é uma ação sem volta: depois disso, ela não pode mais ser editada. Para evitar erros, criei um <strong>modal de confirmação</strong> que:</p>
+        <ul>
+          <li>mostra o resultado consolidado antes da decisão</li>
+          <li>avisa quando a meta ainda não atingiu 100%</li>
+          <li>explica <strong>por que</strong> a ação é irreversível (confiabilidade dos dados e histórico)</li>
+          <li>só habilita o botão “Finalizar Meta” depois de uma confirmação explícita</li>
+        </ul>
+
+        <figure class="figure">
+          <div class="figure-pair">
+            <div>
+              <span class="figure-pair__label" aria-hidden="true">Estado inicial</span>
+              <img src="../assets/img/nts/07a_modal_finalizar_meta_inicial.png" alt="Estado inicial do modal de finalização: resultado consolidado, aviso de meta abaixo de 100% e botão Finalizar Meta desabilitado." loading="lazy" decoding="async">
+            </div>
+            <div>
+              <span class="figure-pair__label" aria-hidden="true">Após confirmar</span>
+              <img src="../assets/img/nts/07b_modal_finalizar_meta_confirmado.png" alt="Modal de finalização com a caixa de confirmação marcada e o botão Finalizar Meta habilitado." loading="lazy" decoding="async">
+            </div>
+          </div>
+          <figcaption>Modal de finalização: o botão “Finalizar Meta” só é habilitado depois que a pessoa marca a confirmação.</figcaption>
+        </figure>
+
+        <!-- Tema 2 -->
+        <h3><span class="theme__number">02</span> Ícones, botões e campos sem rótulo</h3>
+        <p class="theme__meta">4 problemas · todos de gravidade alta</p>
+        <p>Ações importantes eram representadas só por ícones, e havia campos sem identificação. Isso obrigava a pessoa a adivinhar ou decorar o significado, com alto risco de erro.</p>
+        <p><strong>Decisões:</strong></p>
+        <ul>
+          <li>Todos os campos ganharam rótulo</li>
+          <li>As ações de cada meta foram agrupadas num <strong>menu de ações</strong> (⋮), um padrão reconhecível, que abre opções com texto: “Ver mais e atualizar” e “Iniciar planejamento”</li>
+          <li>Os botões de tela passaram a ter rótulo e peso visual de acordo com a importância</li>
+          <li>Alguns ícones foram mantidos a pedido do cliente, como os de baixar e excluir anexos na tela de atualização. Nesses casos, reduzi a quantidade e mantive só ícones de significado amplamente conhecido</li>
+        </ul>
+
+        <!-- Tema 3 -->
+        <h3><span class="theme__number">03</span> Ruído visual e falta de hierarquia</h3>
+        <p class="theme__meta">10 problemas</p>
+        <p>O fundo competia com os dados, as cores eram inconsistentes, algumas metas apareciam na página sem necessidade e os botões não tinham hierarquia nem posição consistente. Por exemplo, “Excluir” e “Salvar” tinham o mesmo peso visual. Alguns elementos também tinham baixo contraste.</p>
+        <p><strong>Decisões:</strong></p>
+        <ul>
+          <li>Reorganizei o <strong>Painel de Metas</strong>, a tela principal, com informações-chave visíveis: número, tipo, responsável, status e prazo</li>
+          <li>Adicionei <strong>busca e filtros</strong> por tipo, responsável, status e faixa de progresso</li>
+          <li>Apliquei <strong>hierarquia de botões</strong> (primário, secundário e terciário). Na tela de atualização, por exemplo, “Salvar” é o primário, “Voltar” é secundário e “Finalizar Meta”, uma ação sem volta, tem destaque próprio</li>
+          <li>Padronizei as cores e corrigi o contraste</li>
+        </ul>
+
+        <figure class="figure">
+          <div class="figure-pair">
+            <div>
+              <span class="figure-pair__label" aria-hidden="true">Antes</span>
+              <img src="../assets/img/nts/03_painel_metas_antes.png" alt="Painel de Metas original: cards com todas as informações abertas sobre um fundo fotográfico e ações representadas apenas por ícones." loading="lazy" decoding="async">
+            </div>
+            <div>
+              <span class="figure-pair__label" aria-hidden="true">Depois</span>
+              <img src="../assets/img/nts/02b_painel_metas_depois_recorte.png" alt="Painel de Metas redesenhado: tabela com número, tipo, responsável, status e prazo de cada meta, campo de busca, filtros em chips e menu de ações por linha." loading="lazy" decoding="async">
+            </div>
+          </div>
+          <figcaption>Antes: cada meta era um card com todas as informações abertas, fundo fotográfico competindo com os dados e ações representadas só por ícones. Depois: tabela com as informações-chave de cada meta, busca, filtros visíveis como chips, status de prazo com ícone e texto e ações agrupadas num menu.</figcaption>
+        </figure>
+
+        <!-- Tema 4 -->
+        <h3><span class="theme__number">04</span> Textos que confundiam em vez de orientar</h3>
+        <p class="theme__meta">4 problemas</p>
+        <p>O app tinha mensagens em outro idioma, instruções vagas (como “Realize o processo pelo menu lateral cronograma”), não indicava os campos obrigatórios e não deixava claro se havia limite de caracteres nos comentários.</p>
+        <p><strong>Decisões:</strong> reescrevi os textos com linguagem clara e tom amigável, indiquei os campos obrigatórios, os formatos e tamanhos de anexo aceitos, e incluí uma confirmação de envio.</p>
+
+        <figure class="figure">
+          <img src="../assets/img/nts/tela-bugs.png" alt="Tela Bugs e Feedbacks em alta fidelidade: texto de apresentação, aviso de que campos com asterisco são obrigatórios, campos Título, Tipo e Descrição marcados como obrigatórios, área de anexo indicando até 10MB nos formatos .jpeg, .png ou .txt e botão Enviar." loading="lazy" decoding="async">
+          <figcaption>Bugs e Feedbacks: campos obrigatórios sinalizados, formatos e tamanho de anexo explícitos e um texto que convida a participar.</figcaption>
+        </figure>
+
+        <!-- ===== Processo ===== -->
+        <h2>Processo de design</h2>
+        <ol class="steps">
+          <li><strong>Wireframes de baixa fidelidade</strong> para discutir conteúdo e conceito de cada página, sem distração visual</li>
+          <li><strong>Alta fidelidade primeiro no Painel de Metas</strong>, a tela principal, para validar a direção visual</li>
+          <li><strong>Expansão para as 50+ telas</strong> do app</li>
+        </ol>
+
+        <figure class="figure">
+          <img src="../assets/img/nts/05_atualizar_meta_wireframe.jpg" alt="Wireframe de baixa fidelidade da tela Atualizar Meta, em tons de cinza, mostrando apenas a estrutura de blocos e campos." loading="lazy" decoding="async">
+          <figcaption>Wireframe de baixa fidelidade: foco na estrutura e no conteúdo da página, sem cor nem estilo.</figcaption>
+        </figure>
+
+        <p>Comparando com a versão final (no tema 1), a tela ganhou a relação com a meta pai, o forecast, o resultado consolidado, o código de cor da evolução mensal e o fluxo de Fato, Causa e Ação para metas atrasadas.</p>
+
+        <!-- ===== Validação ===== -->
+        <h2>Validação e iteração</h2>
+        <p>Validei a proposta em <strong>10+ sessões</strong> com stakeholders do projeto e representantes do RH. Eles são o ponto de contato com os colaboradores e gestores que usam o app, e por isso traziam a perspectiva desses usuários.</p>
+        <p><strong>Exemplo de iteração:</strong> na primeira versão, a tabela mostrava só as informações-chave de cada meta. Isso limpou a tela, mas o cliente sentiu falta de ver a descrição e a evolução mensal sem sair da página.</p>
+        <p>A solução foi <strong>divulgação progressiva</strong>: adicionei <strong>linhas expansíveis</strong>. A informação que antes ficava aberta em todos os cards, poluindo a tela, agora aparece só quando a pessoa pede. Assim, a interface continua simples e o detalhe fica a um clique.</p>
+
+        <figure class="figure">
+          <img src="../assets/img/nts/04_painel_metas_linhas_expandidas.png" alt="Painel de Metas com uma linha expandida mostrando a descrição da meta e um gráfico de evolução mensal comparando planejado e realizado." loading="lazy" decoding="async">
+          <figcaption>Linhas expandidas: descrição e evolução mensal (planejado × realizado) sob demanda.</figcaption>
+        </figure>
+
+        <!-- ===== Resultado ===== -->
+        <h2>Resultado</h2>
+        <ul class="stat-row" role="list" aria-label="Resultados">
+          <li><span class="stat-row__value">27</span><span class="stat-row__label">problemas mapeados e endereçados na versão final</span></li>
+          <li><span class="stat-row__value">50+</span><span class="stat-row__label">telas entregues para desenvolvimento</span></li>
+        </ul>
+        <p>O cliente destacou que a interface ficou <strong>visualmente mais limpa e mais simples de usar</strong>.</p>
+
+        <figure class="figure">
+          <div class="figure-pair">
+            <div>
+              <span class="figure-pair__label" aria-hidden="true">Escolhendo filtros</span>
+              <img src="../assets/img/nts/08_painel_metas_modal_filtros.png" alt="Painel de Metas com o modal de filtros aberto: campos Tipo de meta, Responsável técnico e Status, e botões Limpar e Aplicar Filtros." loading="lazy" decoding="async">
+            </div>
+            <div>
+              <span class="figure-pair__label" aria-hidden="true">Filtros aplicados</span>
+              <img src="../assets/img/nts/02_painel_metas_depois.png" alt="Painel de Metas filtrado por tipo Projeto e status Em andamento, com os filtros ativos visíveis como chips removíveis acima da tabela." loading="lazy" decoding="async">
+            </div>
+          </div>
+          <figcaption>Versão final do Painel de Metas: os filtros são escolhidos num modal e ficam visíveis como chips, que podem ser removidos com um clique.</figcaption>
+        </figure>
+
+        <!-- ===== Aprendizados ===== -->
+        <h2>Aprendizados</h2>
+        <ul class="learning-list" role="list">
+          <li><strong>A interface tem que ensinar.</strong> Quando um produto depende de manual, a documentação está compensando problemas de design. Trazer as regras de negócio para a interface foi a mudança de maior impacto.</li>
+          <li><strong>Agrupar antes de resolver.</strong> Organizar 27 problemas em 4 temas deixou claro onde estavam as causas e tornou as decisões mais consistentes.</li>
+          <li><strong>O que eu faria diferente.</strong> As validações foram feitas com stakeholders e RH, que representavam os usuários. Em um próximo ciclo, eu incluiria testes de usabilidade com colaboradores e gestores, de perfis diversos, para medir tempo de tarefa e taxa de erro antes e depois.</li>
+        </ul>
+
+        <p class="note">Os dados, nomes e identidade visual foram alterados para preservar a confidencialidade do cliente.</p>
+      </article>
+
+      <!-- ===== Próximo case ===== -->
+      <section class="section" aria-labelledby="next-title">
+        <h2 class="eyebrow" id="next-title">Próximo case</h2>
+        <a class="next-case" href="design-system-power-apps.html">
+          <span class="next-case__title">Design System e Component Library para apps corporativos em Power Apps</span>
+          <span class="case-card__cta">Ler case <span aria-hidden="true">→</span></span>
+        </a>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container site-footer__inner">
+      <p>© 2026 Carolina Girafa</p>
+      <p>Acessível segundo a WCAG 2.2 AA</p>
+    </div>
+  </footer>
+</body>
+</html>

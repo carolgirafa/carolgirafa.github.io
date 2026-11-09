@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Design System para apps corporativos em Power Apps · Carolina Girafa</title>
+  <meta name="description" content="Case de Design System: foundations, design tokens com tema claro e escuro e uma Component Library para apps em Power Apps, construídos a partir de entrevistas com desenvolvedores. Em uso em 6 apps.">
+  <meta name="color-scheme" content="light">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="brand" href="../" aria-label="Carolina Girafa, página inicial">Carolina Girafa</a>
+      <nav aria-label="Principal">
+        <ul class="nav__list" role="list">
+          <li><a class="nav__link" href="../#cases">Cases</a></li>
+          <li><a class="nav__link" href="../#sobre">Sobre</a></li>
+          <li><a class="nav__link" href="../#contato">Contato</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="conteudo" tabindex="-1">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Navegação estrutural">
+        <a href="../#cases"><span aria-hidden="true">←</span> Todos os cases</a>
+      </nav>
+
+      <!-- ===== Abertura ===== -->
+      <header class="case-hero">
+        <p class="eyebrow">Design System · Low-code · Smarthis</p>
+        <h1 class="case-hero__title">Design System e Component Library para apps corporativos em Power Apps</h1>
+        <p class="case-hero__lead">
+          Ninguém tinha pedido um Design System. Propus o projeto, entrevistei quem constrói os apps
+          e transformei a identidade de uma multinacional de embalagens em padrões que aceleram o desenvolvimento.
+        </p>
+
+        <dl class="case-summary" aria-label="Resumo do projeto">
+          <div><dt>Meu papel</dt><dd>Product Designer responsável pela pesquisa, pelos foundations e pela governança, orientando a implementação</dd></div>
+          <div><dt>Duração</dt><dd>Cerca de 1 ano</dd></div>
+          <div><dt>Time</dt><dd>Eu (design) e uma desenvolvedora de Power Apps (implementação)</dd></div>
+          <div><dt>Origem</dt><dd>Iniciativa própria, proposta no meu PDI</dd></div>
+          <div><dt>Métodos</dt><dd>10+ entrevistas com desenvolvedores, priorização de dores, foundations, design tokens, documentação e governança</dd></div>
+          <div><dt>Ferramentas</dt><dd>Figma, Power Apps</dd></div>
+          <div class="case-summary__result"><dt>Resultado</dt><dd>Component Library em uso em 6 apps de diferentes áreas, um guia interativo de UX em 8 tópicos para os desenvolvedores e tokens de cor com tema claro e escuro dentro da WCAG AA.</dd></div>
+        </dl>
+      </header>
+
+      <article class="prose">
+        <!-- ===== Contexto ===== -->
+        <h2>Contexto</h2>
+        <p>Uma multinacional de embalagens tinha vários apps internos feitos em Microsoft Power Apps, uma plataforma low-code, para atender diferentes áreas de negócio. Esses apps eram desenvolvidos por pessoas diferentes, do cliente e da Smarthis, e em momentos diferentes.</p>
+        <p>A empresa já tinha uma identidade visual corporativa, mas ela não se traduzia em padrões de interface. Cada desenvolvedor tomava as próprias decisões de cor, tipografia, espaçamento e componentes. O resultado eram apps que pareciam produtos diferentes e muito retrabalho a cada novo projeto.</p>
+        <p>Ninguém tinha pedido um Design System. <strong>A iniciativa foi minha</strong>: propus o projeto no meu Plano de Desenvolvimento Individual (PDI) na Smarthis, por enxergar que a falta de padrões afetava tanto a qualidade dos apps quanto a produtividade do time.</p>
+
+        <!-- ===== Desafio ===== -->
+        <h2>O desafio</h2>
+        <p>Criar um sistema de design que funcionasse <strong>dentro das limitações de uma plataforma low-code</strong> e que fosse adotado por desenvolvedores que não são designers.</p>
+        <p>O sistema precisava otimizar o trabalho desses desenvolvedores.</p>
+        <p class="callout">
+          <span class="eyebrow callout__label">Pergunta que guiou o projeto</span>
+          Como dar consistência aos apps e, ao mesmo tempo, tornar o trabalho dos desenvolvedores mais rápido?
+        </p>
+
+        <!-- ===== Investigação ===== -->
+        <h2>Investigação: entrevistas com desenvolvedores</h2>
+        <p>Antes de definir qualquer padrão visual, conduzi <strong>10+ entrevistas</strong> com desenvolvedores de Power Apps do cliente e da Smarthis. O objetivo era entender como eles constroem os apps, onde perdem tempo e quais decisões de design tomam sem apoio.</p>
+        <p class="callout">
+          <span class="eyebrow callout__label">A dor nº 1</span>
+          A tela em branco. Todos os desenvolvedores entrevistados travavam no início de cada tela, sem referência visual.
+        </p>
+        <p>Logo atrás vieram:</p>
+        <ul>
+          <li><strong>Dificuldade para planejar o app:</strong> faltavam critérios para tomar as decisões de estrutura antes de abrir o Power Apps</li>
+          <li><strong>Retrabalho por feedback tardio:</strong> problemas de interface só apareciam quando o app era mostrado ao cliente, e corrigir no fim custava caro</li>
+          <li><strong>Responsividade frustrante:</strong> elementos posicionados com coordenadas fixas quebravam em outros tamanhos de tela</li>
+          <li><strong>Falta de feedback de sistema:</strong> o usuário não sabia se uma ação tinha funcionado, o que já tinha gerado reclamação de cliente</li>
+          <li><strong>Dúvida na escolha de componentes:</strong> dropdown, radio ou toggle, sem critério claro</li>
+          <li><strong>Telas “feias sem saber por quê”:</strong> falta de hierarquia visual e de espaçamento consistente</li>
+          <li><strong>Cores inventadas a cada app</strong>, sem relação com a marca nem com os estados do sistema</li>
+        </ul>
+        <p><strong>Descoberta-chave:</strong> os desenvolvedores não precisavam virar designers. Eles precisavam de <strong>critérios e pontos de partida prontos</strong>. Isso definiu as duas frentes do projeto: um sistema de componentes e um guia prático de decisões.</p>
+
+        <!-- ===== O que eu defini ===== -->
+        <h2>O que eu defini</h2>
+
+        <h3><span class="theme__number">01</span> Foundations</h3>
+        <p>Traduzi a identidade visual corporativa em decisões de interface:</p>
+        <ul>
+          <li><strong>Cores:</strong> paleta funcional com primária, estados de sucesso, alerta e erro, e neutros</li>
+          <li><strong>Tipografia:</strong> escala de tamanhos e pesos para títulos, textos e rótulos</li>
+          <li><strong>Grid e espaçamento:</strong> estrutura de layout para padronizar as telas</li>
+          <li><strong>Design tokens:</strong> valores nomeados que a desenvolvedora usa direto no Power Apps, no lugar de códigos de cor e tamanhos soltos</li>
+        </ul>
+
+        <h3><span class="theme__number">02</span> Component Library</h3>
+        <p>Defini os componentes reutilizáveis e seus estados, e orientei a desenvolvedora na construção em Power Apps. Eu cuidava do comportamento visual e de uso de cada componente, e ela da viabilidade técnica e da implementação.</p>
+        <p>A primeira versão da biblioteca já cobria os seguintes pontos:</p>
+        <ul>
+          <li><strong>Botões</strong> primário, secundário, terciário, de sucesso e de perigo, cada um com os estados padrão, hover, pressionado, foco e desabilitado</li>
+          <li><strong>Controles de seleção:</strong> checkbox, radio e toggle</li>
+          <li><strong>Formulário:</strong> campo de texto com dica, erro e estado bloqueado, e dropdown</li>
+          <li><strong>Estrutura:</strong> cabeçalho com navegação, tabela de dados com busca, filtros e paginação, e diálogo de confirmação</li>
+          <li><strong>Feedback:</strong> tags de status, alertas e um stepper que mostra em que etapa da aprovação cada item está</li>
+        </ul>
+
+        <figure class="figure">
+          <img src="../assets/img/ds/03_component_library.png" alt="Página da Component Library no tema claro com os componentes e seus estados: botões primário, secundário, terciário, de sucesso e de perigo em cinco estados; checkbox, radio e toggle; tags de status do fluxo de aprovação; campo de texto com estados padrão, foco, preenchido, erro e desabilitado; dropdown aberto e fechado; cabeçalho; tabela de dados com seleção; diálogo de rejeição; alertas de sucesso, aviso, erro e informação; e stepper de aprovação." loading="lazy" decoding="async">
+          <figcaption>Component Library: cada componente documentado com seus estados e os tokens que usa.</figcaption>
+        </figure>
+
+        <h3><span class="theme__number">03</span> Documentação e boas práticas</h3>
+        <p>Para que o sistema fosse usado sem depender de mim, documentei os componentes e criei o <strong>Guia de UX para devs Power Apps</strong>: um guia interativo em HTML, com <strong>8 tópicos</strong>, em que cada tópico responde a uma dor das entrevistas.</p>
+
+        <div class="table-wrap" role="region" tabindex="0" aria-label="Os 8 tópicos do guia, a dor que cada um resolve e o que ele traz">
+          <table>
+            <caption>Os 8 tópicos do guia, a dor que cada um resolve e o que ele traz</caption>
+            <thead><tr><th scope="col">Tópico</th><th scope="col">Dor</th><th scope="col">O que o tópico traz</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">01 · Antes de começar</th><td>Dificuldade para planejar o app</td><td>6 critérios para decidir antes de abrir o Power Apps, com checklist</td></tr>
+              <tr><th scope="row">02 · Templates de tela</th><td>Tela em branco</td><td>Esqueletos anotados de formulário, listagem e detalhe para começar cada tela</td></tr>
+              <tr><th scope="row">03 · Hierarquia e espaçamento</th><td>Telas desorganizadas, sem hierarquia visual</td><td>Exemplos de antes e depois e uma escala fixa de espaçamento (4, 8, 16, 24, 32)</td></tr>
+              <tr><th scope="row">04 · Escolha de componentes</th><td>Dúvida entre dropdown, radio, toggle e outros</td><td>Um recomendador interativo que indica o componente certo para cada situação</td></tr>
+              <tr><th scope="row">05 · Cores e tipografia</th><td>Cada app com cores escolhidas sem critério</td><td>O papel de cada cor (marca, ações, sucesso, alerta e erro) e a escala de tamanhos de texto</td></tr>
+              <tr><th scope="row">06 · Feedback de sistema</th><td>O usuário não sabe se a ação funcionou</td><td>Um simulador dos estados de sucesso, erro, carregamento e confirmação</td></tr>
+              <tr><th scope="row">07 · Responsividade</th><td>Telas que quebram fora do tamanho em que foram feitas</td><td>O mesmo formulário adaptado para tablet e celular, com as regras de layout e as fórmulas do Power Apps que fazem a tela se ajustar</td></tr>
+              <tr><th scope="row">08 · Checklist de entrega</th><td>Retrabalho quando o cliente aponta problemas no fim</td><td>Uma lista de revisão para usar antes de mostrar o app ao cliente</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>Duas decisões de design do guia:</p>
+        <ul>
+          <li><strong>Regras simples no lugar de teoria.</strong> Por exemplo: “O usuário vai inserir, navegar ou consultar? Inserir → formulário. Navegar → listagem. Consultar → detalhe.” Uma pergunta já define o ponto de partida.</li>
+          <li><strong>Interatividade para aprender fazendo.</strong> Checklists marcáveis, recomendador de componentes e simulação de feedback tornam o guia uma ferramenta de consulta, não um documento para ler uma vez.</li>
+        </ul>
+
+        <h3><span class="theme__number">04</span> Governança</h3>
+        <p>Para o sistema continuar consistente depois da entrega, defini um caminho único para qualquer demanda. Quem usa ou desenvolve os apps abre um chamado com dúvidas, bugs, reclamações ou pedidos de novos componentes.</p>
+        <p>O chamado chega para mim e para a desenvolvedora, e juntas fazemos o ajuste ou tiramos a dúvida. Como toda mudança passa por nós duas, o sistema não se fragmenta a cada pedido.</p>
+
+        <!-- ===== Tokens de cor ===== -->
+        <h2>Evolução: tokens de cor com tema claro e escuro</h2>
+        <p>Com o sistema em uso, o passo seguinte foi reorganizar as cores em <strong>design tokens em duas camadas</strong>, prontos para tema claro e escuro e validados contra a WCAG 2.2 AA.</p>
+        <ul>
+          <li><strong>Primitivas:</strong> escalas de 50 a 950 para azul, neutro, verde, vermelho, âmbar e laranja. As cores do guia de identidade são as âncoras, e os tons intermediários foram calculados para que a escala avance em passos visualmente uniformes. Ficam ocultas na biblioteca publicada</li>
+          <li><strong>Semânticas:</strong> 39 tokens nomeados pela função, não pela cor (<code>bg/surface</code>, <code>text/secondary</code>, <code>action/primary</code>, <code>feedback/danger</code>). São eles que vão nas propriedades Fill, Color e BorderColor do Power Apps</li>
+        </ul>
+
+        <figure class="figure">
+          <img src="../assets/img/ds/02_primitivas.png" alt="Escalas primitivas de 50 a 950 em azul, neutro, verde, vermelho e âmbar. Cada amostra mostra o código hexadecimal e o contraste contra branco e preto, e as cores oficiais da marca aparecem marcadas como âncoras." loading="lazy" decoding="async">
+          <figcaption>Primitivas: cada amostra mostra o contraste contra branco e contra preto, o que ajuda a escolher qual tom pode receber texto.</figcaption>
+        </figure>
+
+        <p>O mesmo componente troca de tema sem mudar nenhuma regra, só o modo das variáveis:</p>
+
+        <div class="table-wrap" role="region" tabindex="0" aria-label="Amostra dos tokens semânticos nos dois temas">
+          <table>
+            <caption>Amostra dos tokens semânticos nos dois temas</caption>
+            <thead><tr><th scope="col">Token</th><th scope="col">Claro</th><th scope="col">Escuro</th><th scope="col">Uso</th></tr></thead>
+            <tbody>
+              <tr><th scope="row"><code>bg/canvas</code></th><td><span class="swatch" style="background:#FFFFFF" aria-hidden="true"></span><code>#FFFFFF</code></td><td><span class="swatch" style="background:#0F0F0F" aria-hidden="true"></span><code>#0F0F0F</code></td><td>Fundo da tela</td></tr>
+              <tr><th scope="row"><code>text/primary</code></th><td><span class="swatch" style="background:#1A1A1A" aria-hidden="true"></span><code>#1A1A1A</code></td><td><span class="swatch" style="background:#F7F7F8" aria-hidden="true"></span><code>#F7F7F8</code></td><td>Texto principal</td></tr>
+              <tr><th scope="row"><code>text/link</code></th><td><span class="swatch" style="background:#1140FE" aria-hidden="true"></span><code>#1140FE</code></td><td><span class="swatch" style="background:#8A9FFF" aria-hidden="true"></span><code>#8A9FFF</code></td><td>Links e ações em texto</td></tr>
+              <tr><th scope="row"><code>action/primary</code></th><td><span class="swatch" style="background:#1140FE" aria-hidden="true"></span><code>#1140FE</code></td><td><span class="swatch" style="background:#1140FE" aria-hidden="true"></span><code>#1140FE</code></td><td>Botão primário</td></tr>
+              <tr><th scope="row"><code>feedback/success</code></th><td><span class="swatch" style="background:#397057" aria-hidden="true"></span><code>#397057</code></td><td><span class="swatch" style="background:#397057" aria-hidden="true"></span><code>#397057</code></td><td>Botões de aprovar e salvar</td></tr>
+              <tr><th scope="row"><code>border/strong</code></th><td><span class="swatch" style="background:#8C8E94" aria-hidden="true"></span><code>#8C8E94</code></td><td><span class="swatch" style="background:#8C8E94" aria-hidden="true"></span><code>#8C8E94</code></td><td>Borda de campos (mínimo 3:1)</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <figure class="figure">
+          <img src="../assets/img/ds/01_preview_claro_escuro.png" alt="A mesma tela de revisão, montada só com tokens semânticos, lado a lado no tema claro e no escuro: barra de navegação preta, faixa azul com o título, tags de status, um card com campo de comentário, cinco botões (primário, aprovar, rejeitar, secundário e desabilitado) e um aviso em âmbar." loading="lazy" decoding="async">
+          <figcaption>A mesma tela nos dois temas, com dados fictícios: só o modo das variáveis muda.</figcaption>
+        </figure>
+
+        <h3>O desafio do low-code: tokens que o Power Apps não comporta sozinho</h3>
+        <p>O tema nativo do Power Apps gera todas as cores a partir de uma única cor base, sem espaço para os 39 tokens semânticos nem garantia de contraste.</p>
+        <p>Em vez de abrir mão do sistema, tratei os tokens como fonte única, num formato padrão (W3C DTCG). Do mesmo arquivo saem as variáveis do Figma e um registro global que os componentes consultam no lugar do tema nativo. Assim, o tema claro e escuro e a validação de contraste se mantêm mesmo dentro das limitações da plataforma: <code>feedback/danger</code> é o mesmo vermelho, com o mesmo contraste validado, em qualquer app.</p>
+
+        <p><strong>Decisões que saíram da validação de contraste:</strong></p>
+        <ul>
+          <li><strong>68 de 68 combinações passam na WCAG AA</strong>: texto com pelo menos 4,5:1 e bordas, ícones e foco com pelo menos 3:1, nos dois temas</li>
+          <li>O verde dos botões de sucesso tinha cerca de <strong>2:1</strong> com texto branco. O novo verde, vindo da paleta oficial de dados, chega a <strong>5,8:1</strong></li>
+          <li>O azul sólido da marca é o mesmo nos dois temas, porque texto branco sobre ele dá 6,6:1. Já o azul usado em texto e ícones muda para um tom mais claro no escuro, porque o original sobre preto dá só 3,2:1</li>
+          <li>A paleta de visualização de dados ficou separada, só para gráficos e Power BI, fora dos componentes de interface</li>
+        </ul>
+
+        <p>Os tokens também resolveram um problema de significado. No fluxo de aprovação, dois níveis diferentes usavam laranja e âmbar parecidos. Agora cada estado usa uma única família semântica, e o rótulo da tag sempre diz o estado: <strong>a cor nunca é o único sinal</strong>.</p>
+
+        <div class="table-wrap" role="region" tabindex="0" aria-label="Estados do fluxo de aprovação e a família de cor de cada um">
+          <table>
+            <caption>Estados do fluxo de aprovação e a família de cor de cada um</caption>
+            <thead><tr><th scope="col">Estado</th><th scope="col">Família</th><th scope="col">Tokens da tag</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Aguardando revisão (L1 e L2)</th><td>Alerta</td><td><code>feedback/warning-subtle</code> + <code>warning-text</code></td></tr>
+              <tr><th scope="row">Revisão final (L3)</th><td>Informação</td><td><code>feedback/info-subtle</code> + <code>info-text</code></td></tr>
+              <tr><th scope="row">Etapa aprovada</th><td>Sucesso</td><td><code>feedback/success-subtle</code> + <code>success-text</code></td></tr>
+              <tr><th scope="row">Aprovado e publicado</th><td>Sucesso sólido</td><td><code>feedback/success</code> + <code>text/on-brand</code></td></tr>
+              <tr><th scope="row">Rejeitado ou devolvido</th><td>Erro</td><td><code>feedback/danger-subtle</code> + <code>danger-text</code></td></tr>
+              <tr><th scope="row">Próxima etapa</th><td>Neutro</td><td><code>bg/subtle</code> + <code>text/secondary</code></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- ===== Colaboração ===== -->
+        <h2>Colaboração design × desenvolvimento</h2>
+        <p>O sistema foi construído a quatro mãos:</p>
+        <div class="table-wrap" role="region" tabindex="0" aria-label="Divisão de responsabilidades entre design e desenvolvimento">
+          <table>
+            <caption>Divisão de responsabilidades entre design e desenvolvimento</caption>
+            <thead><tr><th scope="col">Eu (design)</th><th scope="col">Desenvolvedora (Power Apps)</th></tr></thead>
+            <tbody>
+              <tr><td>Entrevistas e síntese das dores</td><td>Avaliação de viabilidade técnica</td></tr>
+              <tr><td>Foundations, tokens e especificação dos componentes</td><td>Construção dos componentes em Power Apps</td></tr>
+              <tr><td>Documentação, guia de boas práticas e governança</td><td>Testes técnicos e ajustes de implementação</td></tr>
+              <tr><td>Revisão visual dos componentes implementados</td><td>Feedback sobre limitações da plataforma</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>Trabalhar com uma plataforma low-code exigiu adaptar o design ao que o Power Apps permite. O caso mais marcante foram os tokens de cor: como o tema nativo não comportava o sistema, a saída foi o registro de tokens descrito acima.</p>
+
+        <!-- ===== Resultado ===== -->
+        <h2>Resultado</h2>
+        <ul class="stat-row" role="list" aria-label="Resultados">
+          <li><span class="stat-row__value">6</span><span class="stat-row__label">apps de diferentes áreas usando a biblioteca</span></li>
+          <li><span class="stat-row__value">8</span><span class="stat-row__label">tópicos no guia de UX para devs</span></li>
+          <li><span class="stat-row__value">68/68</span><span class="stat-row__label">combinações de cor dentro da WCAG AA</span></li>
+        </ul>
+        <p>Novos apps passaram a começar de uma base pronta, sem a tela em branco.</p>
+        
+        <figure class="figure">
+          <img src="../assets/img/ds/04_apps_com_o_sistema.png" alt="Três apps diferentes construídos com o mesmo sistema: uma fila de revisão de boas práticas com indicadores, filtros e tabela com tags de status, no tema claro; uma matriz de aprovadores no tema escuro; e uma lista de pedidos de manutenção no tema claro. Os três compartilham a barra de navegação preta, a faixa azul de título, a busca, os filtros, a tabela e a paginação." loading="lazy" decoding="async">
+          <figcaption>Três apps de áreas diferentes com a mesma base: navegação, cabeçalho, filtros, tabela e tags se repetem, inclusive no tema escuro. Nomes e dados são fictícios.</figcaption>
+        </figure>
+
+        <!-- ===== Aprendizados ===== -->
+        <h2>Aprendizados</h2>
+        <ul class="learning-list" role="list">
+          <li><strong>Design System é produto e o usuário é o desenvolvedor.</strong> Começar pelas entrevistas fez o sistema resolver dores reais de quem constrói os apps, e isso ajudou na adoção.</li>
+          <li><strong>Restrição técnica faz parte do design.</strong> Em low-code, um bom componente é o que pode ser implementado e mantido, não só o mais bonito.</li>
+          <li><strong>Documentar é tão importante quanto desenhar.</strong> Sem guia e governança, o sistema voltaria a se fragmentar a cada novo app.</li>
+          <li><strong>Acessibilidade começa no token.</strong> Validar o contraste na camada semântica garante que qualquer tela montada com os tokens já nasce dentro da WCAG AA.</li>
+        </ul>
+
+        <p class="note">Telas e dados foram anonimizados para preservar a confidencialidade do cliente. A tela de exemplo dos tokens usa dados fictícios.</p>
+      </article>
+
+      <!-- ===== Próximo case ===== -->
+      <section class="section" aria-labelledby="next-title">
+        <h2 class="eyebrow" id="next-title">Próximo case</h2>
+        <a class="next-case" href="gestao-de-metas.html">
+          <span class="next-case__title">Redesign de um app corporativo de gestão de metas</span>
+          <span class="case-card__cta">Ler case <span aria-hidden="true">→</span></span>
+        </a>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container site-footer__inner">
+      <p>© 2026 Carolina Girafa</p>
+      <p>Acessível segundo a WCAG 2.2 AA</p>
+    </div>
+  </footer>
+</body>
+</html>
